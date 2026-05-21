@@ -1,15 +1,11 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { CreateAccountComponent } from './pages/create-account/create-account.component';
-import { GoogleAuthenticationComponent } from './pages/google-authentication/google-authentication.component';
-import { GoogleConsentComponent } from './pages/google-consent/google-consent.component';
-import { UserTypeComponent } from './pages/user-type/user-type.component';
 
 export const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'create-account', component: CreateAccountComponent },
-  { path: 'google-authentication', component: GoogleAuthenticationComponent },
-  { path: 'google-consent', component: GoogleConsentComponent },
-  { path: 'user-type', component: UserTypeComponent },
-  { path: '', redirectTo: 'login', pathMatch: 'full' }
+  { path: '', pathMatch: 'full', loadComponent: () => import('./job-seeker/job-seeker').then((m) => m.JobSeeker) },
+  { path: 'jobs', loadComponent: () => import('./pages/jobs/jobs.page').then((m) => m.JobsPage) },
+  { path: 'profile', loadComponent: () => import('./pages/profile/profile.page').then((m) => m.ProfilePage) },
+  { path: 'edit-profile', loadComponent: () => import('./pages/edit-profile/edit-profile.page').then((m) => m.EditProfilePage) },
+  { path: 'summary', loadComponent: () => import('./pages/summary/summary.page').then((m) => m.SummaryPage) },
+  { path: 'messages', loadComponent: () => import('./pages/messages/messages.page').then((m) => m.MessagesPage) },
+  { path: '**', redirectTo: '' }
 ];

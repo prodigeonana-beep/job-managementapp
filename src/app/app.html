@@ -1,0 +1,17 @@
+<div class="app-layout">
+  <header class="topbar">
+    <div class="brand">KamerJob</div>
+    <nav class="nav-links">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+      <a routerLink="/jobs" routerLinkActive="active">Jobs</a>
+      <a routerLink="/profile" routerLinkActive="active">Profile</a>
+      <a routerLink="/edit-profile" routerLinkActive="active">Edit Profile</a>
+      <a routerLink="/summary" routerLinkActive="active">Summary</a>
+      <a routerLink="/messages" routerLinkActive="active">Messages</a>
+    </nav>
+  </header>
+
+  <main class="router-shell">
+    <router-outlet></router-outlet>
+  </main>
+</div>
